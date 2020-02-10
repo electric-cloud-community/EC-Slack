@@ -1,0 +1,37 @@
+<!--
+    This form is generated automatically from the parameters pluginspec.
+    Please not not edit this file manually as it will be regenerated.
+-->
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/help?s=Administration&amp;ss=Plugins#CreateChannel</help>
+  <formElement>
+    <type>entry</type>
+    <property>config</property>
+    <configuration>1</configuration>
+    <propertyReference>/plugins/@PLUGIN_NAME@/project/ec_plugin_cfgs</propertyReference>
+    <required>1</required>
+    <documentation>Previously defined configuration for the plugin</documentation>
+    <label>Configuration Name:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>name</property>
+    <required>1</required>
+    <documentation>Slack Channel Name</documentation>
+    <label>Channel Name:</label>
+  </formElement>
+  <formElement>
+    <type>checkbox</type>
+    <property>is_private</property>
+    <required>0</required>
+    <documentation>Create a private channel instead of a public one</documentation>
+    <label>Is Private:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>user_ids</property>
+    <required>0</required>
+    <documentation>list of between 1 and 30 human users that will be added to the newly-created conversation. e.g. "W1234567890,U2345678901,U3456789012"</documentation>
+    <label>User IDs:</label>
+  </formElement>
+</editor>

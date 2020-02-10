@@ -1,0 +1,128 @@
+pluginInfo:
+  # This is default sample specification
+  # Feel free to change it
+  # Call flowpdk showdoc pluginspec to see the list of available fields and their description
+  pluginName: 'EC-Slack'
+  version: '1.0.0'
+  description: 'Slack integration'
+  author: 'Shaohua Wen <swen@cloudbees.com>'
+  supportUrl: 'none'
+  category: 'Utilities'
+  shell: 'ec-perl'
+
+# REST-backed plugin configuration
+configuration:
+  checkConnection: true
+  restConfigInfo:
+    endpointLabel: 'My REST Endpoint'
+    checkConnectionUri: '/api.test'
+    defaultEndpointValue: https://slack.com/api
+    headers:
+      Accept: 'application/json'
+    authSchemes:
+      bearer:
+        passwordLabel: 'Bearer token'
+        description: 'Token to connect to...'
+  hasProxySupport: true
+  hasDebugLevel: true
+
+procedures:
+-
+  name: 'Send Realtime Message'
+  description: 'Sends a message from EF to either a Slack Channel or a user.'
+  hasConfig: true
+  shell: 'ec-perl'
+  parameters:
+  -
+    name: channel
+    documentation: Slack Channel
+    required: true
+    type: entry
+    label: Channel
+    restParamInfo:
+      in: body
+  -
+    name: text
+    documentation: Message Text
+    required: true
+    type: textarea
+    label: Text
+    restParamInfo:
+      in: body
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/chat.postMessage'
+    methodName: 'SendRealtimeMessage'
+    httpMethod: 'POST'
+
+-
+  name: 'Create Channel'
+  description: 'Initiates a public or private channel-based conversation'
+  hasConfig: true
+  shell: 'ec-perl'
+  parameters:
+  -
+    name: name
+    documentation: Slack Channel Name
+    required: true
+    type: entry
+    label: Channel Name
+    restParamInfo:
+      in: body
+  -
+    name: is_private
+    documentation: Create a private channel instead of a public one
+    required: false
+    type: checkbox
+    label: Is Private
+    restParamInfo:
+      in: body
+  -
+    name: user_ids
+    documentation: list of between 1 and 30 human users that will be added to the newly-created conversation. e.g. "W1234567890,U2345678901,U3456789012"
+    required: false
+    type: entry
+    label: User IDs
+    restParamInfo:
+      in: body
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/conversations.create'
+    methodName: 'CreateChannel'
+    httpMethod: 'POST'
+    
+-
+  name: 'Uploads File'
+  description: 'Uploads or creates a file.'
+  hasConfig: true
+  shell: 'ec-perl'
+  parameters:
+  -
+    name: channels
+    documentation: Comma-separated list of channel names or IDs where the file will be shared.
+    required: true
+    type: entry
+    label: Channels
+    restParamInfo:
+      in: body
+  -
+    name: content
+    documentation: File contents.
+    required: true
+    type: textarea
+    label: Content
+    restParamInfo:
+      in: body
+  -
+    name: title
+    documentation: Title of the file being shared.
+    required: false
+    type: entry
+    label: Title
+    restParamInfo:
+      in: body
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/files.upload'
+    methodName: 'UploadsFile'
+    httpMethod: 'POST'
