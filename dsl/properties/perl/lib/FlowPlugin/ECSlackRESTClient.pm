@@ -358,6 +358,8 @@ sub renderOneLineTemplate {
 
 # text: in body
 
+# blocks: in body
+
 sub SendRealtimeMessage {
     my ($self, %params) = @_;
 
@@ -382,6 +384,8 @@ sub SendRealtimeMessage {
         'channel' => $params{ 'channel' },
 
         'text' => $params{ 'text' },
+
+        'blocks' => $params{ 'blocks' },
 
     };
     logDebug($payload);
@@ -495,7 +499,7 @@ sub UploadsFile {
     my $response = $self->makeRequest('POST', $uri, $query, $payload, $headers, \%params);
     return $response;
 }
-## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 3ffba721186853cfe49c63251e8da231 ===
+## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 2daf42ab9bb7f35103cef57933a23d84 ===
 =pod
 
 Use this method to change HTTP::Request object before the request, e.g.

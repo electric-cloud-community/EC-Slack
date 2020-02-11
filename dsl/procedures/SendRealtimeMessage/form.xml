@@ -27,4 +27,11 @@
     <documentation>Message Text</documentation>
     <label>Text:</label>
   </formElement>
+  <formElement>
+    <type>textarea</type>
+    <property>blocks</property>
+    <required>0</required>
+    <documentation>A JSON-based array of structured blocks, presented as a URL-encoded string.</documentation>
+    <label>Blocks:</label>
+  </formElement>
 </editor>

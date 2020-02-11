@@ -35,6 +35,7 @@ sub sendRealtimeMessage {
     my %restParams = (
         'channel' => $params->{'channel'},
         'text' => $params->{'text'},
+        'blocks' => $params->{'blocks'},
     );
     my $response = $ECSlackRESTClient->SendRealtimeMessage(%restParams);
     logInfo("Got response from the server: ", $response);

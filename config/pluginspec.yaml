@@ -49,6 +49,14 @@ procedures:
     label: Text
     restParamInfo:
       in: body
+  -
+    name: blocks
+    documentation: A JSON-based array of structured blocks, presented as a URL-encoded string.
+    required: false
+    type: textarea
+    label: Blocks
+    restParamInfo:
+      in: body
   # Connects REST endpoint to the plugin procedure
   restProcedureInfo:
     url: '/chat.postMessage'
