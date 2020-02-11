@@ -3,7 +3,7 @@ pluginInfo:
   # Feel free to change it
   # Call flowpdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'EC-Slack'
-  version: '1.0.0'
+  version: '1.0.1'
   description: 'Slack integration'
   author: 'Shaohua Wen <swen@cloudbees.com>'
   supportUrl: 'none'
