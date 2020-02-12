@@ -10,7 +10,10 @@ procedure 'Create Channel', description: '''Initiates a public or private channe
 
         postProcessor = '''$[/myProject/perl/postpLoader]'''
     }
-// DO NOT EDIT THIS BLOCK === procedure_autogen ends, checksum: 1eff0ed608a96af12287c1e2631aa35f ===
+
+    formalOutputParameter 'channel_id',
+        description: 'the new id of the channel that created.'
+// DO NOT EDIT THIS BLOCK === procedure_autogen ends, checksum: 5bac2a9ac52caec3b56fcc181a4a6a0e ===
 // Do not update the code above the line
 // procedure properties declaration can be placed in here, like
 // property 'property name', value: "value"

@@ -84,10 +84,13 @@ sub createChannel {
 
     my $stepResult = $context->newStepResult;
 
-    $stepResult->apply();
     if( $response->{'ok'} != 1 ) {
         die $response->{'error'};
     }
+
+    $stepResult->setOutputParameter(channel_id => $response->{'channel'}->{'id'});
+
+    $stepResult->apply();
 }
 
 # Auto-generated method for the procedure Uploads File/Uploads File

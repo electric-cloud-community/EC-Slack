@@ -26,6 +26,9 @@
     <required>0</required>
     <documentation>Create a private channel instead of a public one</documentation>
     <label>Is Private:</label>
+    <value>false</value>
+    <checkedValue>true</checkedValue>
+    <uncheckedValue>false</uncheckedValue>
   </formElement>
   <formElement>
     <type>entry</type>

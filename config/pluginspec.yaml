@@ -3,7 +3,7 @@ pluginInfo:
   # Feel free to change it
   # Call flowpdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'EC-Slack'
-  version: '1.0.1'
+  version: '1.0.2'
   description: 'Slack integration'
   author: 'Shaohua Wen <swen@cloudbees.com>'
   supportUrl: 'none'
@@ -83,6 +83,9 @@ procedures:
     required: false
     type: checkbox
     label: Is Private
+    value: false
+    checkedValue: true
+    uncheckedValue: false
     restParamInfo:
       in: body
   -
@@ -93,6 +96,10 @@ procedures:
     label: User IDs
     restParamInfo:
       in: body
+  outputParameters:
+  -
+    name: channel_id
+    description: the new id of the channel that created.
   # Connects REST endpoint to the plugin procedure
   restProcedureInfo:
     url: '/conversations.create'
