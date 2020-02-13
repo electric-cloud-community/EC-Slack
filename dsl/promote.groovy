@@ -18,6 +18,7 @@ def pluginDir = getProperty("/projects/$pluginName/pluginDir").value
 def stepsWithAttachedCredentials = [
     [procedureName: "Send Realtime Message", stepName: "Send Realtime Message"],
     [procedureName: "Create Channel", stepName: "Create Channel"],
+    [procedureName: "Archive Channel", stepName: "Archive Channel"],
     [procedureName: "Uploads File", stepName: "Uploads File"],
 
 ]
@@ -45,7 +46,7 @@ project pluginName, {
 def retainedProperties = []
 
 upgrade(upgradeAction, pluginName, otherPluginName, stepsWithAttachedCredentials, 'ec_plugin_cfgs', retainedProperties)
-// DO NOT EDIT THIS BLOCK === promote_autogen ends, checksum: 58c236407aaad63155a8c3abef323280 ===
+// DO NOT EDIT THIS BLOCK === promote_autogen ends, checksum: f267a2e28040b63a28d1a2e3268432c6 ===
 // Do not edit the code above this line
 
 project pluginName, {

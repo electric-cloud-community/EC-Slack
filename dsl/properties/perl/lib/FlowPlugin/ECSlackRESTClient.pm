@@ -454,6 +454,48 @@ sub CreateChannel {
 
 # Do not change this code
 
+# channel: in body
+
+sub ArchiveChannel {
+    my ($self, %params) = @_;
+
+    $self->{method} = 'ArchiveChannel';
+    $self->{methodParameters} = \%params;
+
+    my $uri = "/conversations.archive";
+    logDebug "URI Template: $uri";
+    $uri = renderOneLineTemplate($uri, %params);
+    logDebug "Rendered URI: $uri";
+
+    my $query = {
+
+    };
+
+    logDebug "Query", $query;
+
+    # TODO handle credentials
+    # TODO Handle empty parameters
+    my $payload = {
+
+        'channel' => $params{ 'channel' },
+
+    };
+    logDebug($payload);
+
+    $payload = $self->cleanEmptyFields($payload);
+
+    my $headers = {
+    };
+
+    # Creating a request object
+    my $response = $self->makeRequest('POST', $uri, $query, $payload, $headers, \%params);
+    return $response;
+}
+
+# Generated code for the endpoint
+
+# Do not change this code
+
 # channels: in query
 
 # content: in query
@@ -499,7 +541,7 @@ sub UploadsFile {
     my $response = $self->makeRequest('POST', $uri, $query, $payload, $headers, \%params);
     return $response;
 }
-## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 2daf42ab9bb7f35103cef57933a23d84 ===
+## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 9c9da0e62ad1f80543877156da375840 ===
 =pod
 
 Use this method to change HTTP::Request object before the request, e.g.

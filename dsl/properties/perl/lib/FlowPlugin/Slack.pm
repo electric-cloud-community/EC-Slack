@@ -125,6 +125,34 @@ sub uploadsFile {
     }
 }
 
+# Auto-generated method for the procedure Archive Channel/Archive Channel
+# Add your code into this method and it will be called when step runs
+# Parameter: config
+# Parameter: channel
+
+sub archiveChannel {
+    my ($pluginObject) = @_;
+
+    my $context = $pluginObject->getContext();
+    my $params = $context->getRuntimeParameters();
+
+    my $ECSlackRESTClient = $pluginObject->getECSlackRESTClient;
+    # If you have changed your parameters in the procedure declaration, add/remove them here
+    my %restParams = (
+        'channel' => $params->{'channel'},
+    );
+    my $response = $ECSlackRESTClient->ArchiveChannel(%restParams);
+    logInfo("Got response from the server: ", $response);
+
+    my $stepResult = $context->newStepResult;
+
+    if( $response->{'ok'} != 1 ) {
+        die $response->{'error'};
+    }
+
+    $stepResult->apply();
+}
+
 ## === step ends ===
 # Please do not remove the marker above, it is used to place new procedures into this file.
 

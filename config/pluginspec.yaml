@@ -3,7 +3,7 @@ pluginInfo:
   # Feel free to change it
   # Call flowpdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'EC-Slack'
-  version: '1.0.2'
+  version: '1.0.3'
   description: 'Slack integration'
   author: 'Shaohua Wen <swen@cloudbees.com>'
   supportUrl: 'none'
@@ -104,6 +104,26 @@ procedures:
   restProcedureInfo:
     url: '/conversations.create'
     methodName: 'CreateChannel'
+    httpMethod: 'POST'
+
+-
+  name: 'Archive Channel'
+  description: 'Archives a conversation.'
+  hasConfig: true
+  shell: 'ec-perl'
+  parameters:
+  -
+    name: channel
+    documentation: ID of conversation to archive.
+    required: true
+    type: entry
+    label: Channel
+    restParamInfo:
+      in: body
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/conversations.archive'
+    methodName: 'ArchiveChannel'
     httpMethod: 'POST'
     
 -
