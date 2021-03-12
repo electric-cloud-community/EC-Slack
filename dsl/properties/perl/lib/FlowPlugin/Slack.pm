@@ -88,7 +88,17 @@ sub createChannel {
         die $response->{'error'};
     }
 
-    $stepResult->setOutputParameter(channel_id => $response->{'channel'}->{'id'});
+    my $channelId = $response->{'channel'}->{'id'};
+    my $channelName = $params->{'name'};
+
+    $stepResult->setOutputParameter(channel_id => $channelId);
+
+    $response = $ECSlackRESTClient->getTeamInfo(%restParams);
+    if( $response->{'ok'} != 1 ) {
+        die $response->{'error'};
+    }
+    my $teamId = $response->{'team'}->{'id'};
+    $stepResult->setOutputParameter(channel_url => "<html><a href=\"slack://channel?id=${channelId}&team=${teamId}\">${channelName}</a></html>");
 
     $stepResult->apply();
 }

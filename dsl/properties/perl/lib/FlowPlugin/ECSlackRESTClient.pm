@@ -1,4 +1,4 @@
-## DO NOT EDIT THIS BLOCK === rest client imports starts ===
+## DO NOT EDIT THIS BLOCK BELOW=== rest client imports starts ===
 package FlowPlugin::ECSlackRESTClient;
 use strict;
 use warnings;
@@ -7,9 +7,9 @@ use JSON;
 use Data::Dumper;
 use FlowPDF::Client::REST;
 use FlowPDF::Log;
-## DO NOT EDIT THIS BLOCK === rest client imports ends, checksum: d928af1f11b9c5c7c620134ead879312 ===
+## DO NOT EDIT THIS BLOCK ABOVE ^^^=== rest client imports ends, checksum: d928af1f11b9c5c7c620134ead879312 ===
 # Place for the custom user imports, e.g. use File::Spec
-## DO NOT EDIT THIS BLOCK === rest client starts ===
+## DO NOT EDIT THIS BLOCK BELOW=== rest client starts ===
 =head1
 
 FlowPlugin::ECSlackRESTClient->new('http://endpoint', {
@@ -21,7 +21,7 @@ FlowPlugin::ECSlackRESTClient->new('http://endpoint', {
 # Generated
 use constant {
     BEARER_PREFIX => 'Bearer',
-    USER_AGENT => 'ECSlackRESTClient REST Client',
+    USER_AGENT => 'My Slack Client',
     OAUTH1_SIGNATURE_METHOD =>  'RSA-SHA1' ,
     CONTENT_TYPE => 'application/json'
 };
@@ -354,6 +354,41 @@ sub renderOneLineTemplate {
 
 # Do not change this code
 
+sub getTeamInfo {
+    my ($self, %params) = @_;
+
+    $self->{method} = 'getTeamInfo';
+    $self->{methodParameters} = \%params;
+
+    my $uri = "/team.info";
+    logDebug "URI Template: $uri";
+    $uri = renderOneLineTemplate($uri, %params);
+    logDebug "Rendered URI: $uri";
+
+    my $query = {
+
+    };
+
+    logDebug "Query", $query;
+
+    my $payload = {};
+
+    logDebug($payload);
+
+    $payload = $self->cleanEmptyFields($payload);
+
+    my $headers = {
+    };
+
+    # Creating a request object
+    my $response = $self->makeRequest('GET', $uri, $query, $payload, $headers, \%params);
+    return $response;
+}
+
+# Generated code for the endpoint
+
+# Do not change this code
+
 # channel: in body
 
 # text: in body
@@ -377,17 +412,14 @@ sub SendRealtimeMessage {
 
     logDebug "Query", $query;
 
-    # TODO handle credentials
-    # TODO Handle empty parameters
-    my $payload = {
+    my $payload = {};
 
-        'channel' => $params{ 'channel' },
+    $payload->{'channel'} = $params{'channel'};
 
-        'text' => $params{ 'text' },
+    $payload->{'text'} = $params{'text'};
 
-        'blocks' => $params{ 'blocks' },
+    $payload->{'blocks'} = $params{'blocks'};
 
-    };
     logDebug($payload);
 
     $payload = $self->cleanEmptyFields($payload);
@@ -427,17 +459,14 @@ sub CreateChannel {
 
     logDebug "Query", $query;
 
-    # TODO handle credentials
-    # TODO Handle empty parameters
-    my $payload = {
+    my $payload = {};
 
-        'name' => $params{ 'name' },
+    $payload->{'name'} = $params{'name'};
 
-        'is_private' => $params{ 'is_private' },
+    $payload->{'is_private'} = $params{'is_private'};
 
-        'user_ids' => $params{ 'user_ids' },
+    $payload->{'user_ids'} = $params{'user_ids'};
 
-    };
     logDebug($payload);
 
     $payload = $self->cleanEmptyFields($payload);
@@ -473,13 +502,10 @@ sub ArchiveChannel {
 
     logDebug "Query", $query;
 
-    # TODO handle credentials
-    # TODO Handle empty parameters
-    my $payload = {
+    my $payload = {};
 
-        'channel' => $params{ 'channel' },
+    $payload->{'channel'} = $params{'channel'};
 
-    };
     logDebug($payload);
 
     $payload = $self->cleanEmptyFields($payload);
@@ -525,11 +551,8 @@ sub UploadsFile {
 
     logDebug "Query", $query;
 
-    # TODO handle credentials
-    # TODO Handle empty parameters
-    my $payload = {
+    my $payload = {};
 
-    };
     logDebug($payload);
 
     $payload = $self->cleanEmptyFields($payload);
@@ -541,7 +564,7 @@ sub UploadsFile {
     my $response = $self->makeRequest('POST', $uri, $query, $payload, $headers, \%params);
     return $response;
 }
-## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 9c9da0e62ad1f80543877156da375840 ===
+## DO NOT EDIT THIS BLOCK ABOVE ^^^=== rest client ends, checksum: 212623e38e18675b729aad25d77b5835 ===
 =pod
 
 Use this method to change HTTP::Request object before the request, e.g.

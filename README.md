@@ -5,7 +5,7 @@ EC-Slack
 
 Plugin version 1.0.4.0
 
-Revised on 15, 2020
+Revised on Mar 15, 2020
 
 * * *
 
@@ -93,6 +93,7 @@ Initiates a public or private channel-based conversation
 | Parameter | Description |
 | --- | --- |
 | channel\_id | the new id of the channel that created. |
+| channel\_url | the URL of the channle that created. |
 
 Archive Channel
 ---------------
@@ -122,6 +123,10 @@ Uploads or creates a file.
 
 Release Notes
 =============
+
+### EC-Slack 1.1.0
+
+*   Add output parameter to Create Channel with URL to the new channel
 
 ### EC-Slack 1.0.4
 
