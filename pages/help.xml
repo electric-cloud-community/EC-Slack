@@ -303,6 +303,11 @@
                 <td>channel_id</td>
                 <td>the new id of the channel that created.</td>
             </tr>
+
+            <tr>
+                <td>channel_url</td>
+                <td>the URL of the channle that created.</td>
+            </tr>
             
             </tbody>
         </table>
@@ -419,7 +424,13 @@
     
 
     <h1 id="releaseNotes">Release Notes</h1>
-    
+    <h3>@PLUGIN_KEY@ 1.1.4</h3>
+    <ul>
+        
+        <li>Add output parameter to Create Channel with URL to the new channel.</li>
+        
+    </ul>
+
     <h3>@PLUGIN_KEY@ 1.0.4</h3>
     <ul>
         
