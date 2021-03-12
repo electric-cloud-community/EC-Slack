@@ -3,9 +3,9 @@
 EC-Slack
 ========
 
-Plugin version 1.0.4.0
+Plugin version 1.1.0.0
 
-Revised on Mar 15, 2020
+Revised on Mar 12, 2021
 
 * * *
 
