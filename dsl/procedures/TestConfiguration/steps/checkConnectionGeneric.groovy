@@ -150,9 +150,12 @@ http.request(GET, TEXT) { req ->
   }
 
   response.failure = { resp, reader ->
-    println "$resp.statusLine"
-    println "$reader"
-    String message = "Check Connection Failed: ${resp.statusLine}, $reader"
+    println "Check connection failed"
+    String status = resp.statusLine.toString()
+    println "$status"
+    String body =  reader.text
+    println body
+    String message = "Check Connection Failed: ${status}, $body"
     handleError(ef, message)
   }
 }
@@ -185,4 +188,4 @@ def augmentUri(path, uri) {
     p = p.replaceAll(/\/+/, '/')
     return p
 }
-// DO NOT EDIT THIS BLOCK ABOVE ^^^=== check_connection ends, checksum: 0d01d432012783d61d5c63e38eb611e9 ===
+// DO NOT EDIT THIS BLOCK ABOVE ^^^=== check_connection ends, checksum: 56074a5ce640d7c08571b95b3a28d5d0 ===

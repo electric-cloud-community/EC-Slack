@@ -3,12 +3,12 @@ pluginInfo:
   # Feel free to change it
   # Call flowpdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'EC-Slack'
-  version: '1.1.0'
+  version: '2.0.0'
   description: 'Slack integration'
   author: 'Shaohua Wen <swen@cloudbees.com>'
   supportUrl: 'none'
   category: 'Utilities'
-  shell: 'ec-perl'
+  shell: 'ec-groovy'
 
 # REST-backed plugin configuration
 configuration:
@@ -28,7 +28,7 @@ configuration:
 
 restClient:
   userAgent: My Slack Client
-  language: perl
+  language: groovy
   endpoints:
     - methodName: getTeamInfo
       httpMethod: GET
@@ -40,7 +40,7 @@ procedures:
   name: 'Send Realtime Message'
   description: 'Sends a message from EF to either a Slack Channel or a user.'
   hasConfig: true
-  shell: 'ec-perl'
+  shell: 'ec-groovy'
   parameters:
   -
     name: channel
@@ -76,7 +76,7 @@ procedures:
   name: 'Create Channel'
   description: 'Initiates a public or private channel-based conversation'
   hasConfig: true
-  shell: 'ec-perl'
+  shell: 'ec-groovy'
   parameters:
   -
     name: name
@@ -122,7 +122,7 @@ procedures:
   name: 'Archive Channel'
   description: 'Archives a conversation.'
   hasConfig: true
-  shell: 'ec-perl'
+  shell: 'ec-groovy'
   parameters:
   -
     name: channel
@@ -137,12 +137,12 @@ procedures:
     url: '/conversations.archive'
     methodName: 'ArchiveChannel'
     httpMethod: 'POST'
-    
+
 -
   name: 'Uploads File'
   description: 'Uploads or creates a file.'
   hasConfig: true
-  shell: 'ec-perl'
+  shell: 'ec-groovy'
   parameters:
   -
     name: channels
